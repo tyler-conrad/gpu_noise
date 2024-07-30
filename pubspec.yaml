@@ -15,7 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: '>=4.0.0 < 5.0.0'
+  flutter_lints: '>=4.0.0 <5.0.0'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -23,23 +23,37 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   shaders:
-    - lib/src/shaders/cellular2F1.frag
-    - lib/src/shaders/cellular2F2.frag
-    - lib/src/shaders/cellular2x2F1.frag
-    - lib/src/shaders/cellular2x2F2.frag
-    - lib/src/shaders/cellular2x2x2F1.frag
-    - lib/src/shaders/cellular2x2x2F2.frag
-    - lib/src/shaders/cellular3F1.frag
-    - lib/src/shaders/cellular3F2.frag
+    - lib/src/shaders/cellular2.frag
+    - lib/src/shaders/cellular2x2.frag
+    - lib/src/shaders/cellular2x2x2.frag
+    - lib/src/shaders/cellular3.frag
+    - lib/src/shaders/curl2.frag
+    - lib/src/shaders/curl3.frag
+    - lib/src/shaders/curl4.frag
+    - lib/src/shaders/fbm2.frag
+    - lib/src/shaders/fbm3.frag
+    - lib/src/shaders/gerstner_wave2.frag
+    - lib/src/shaders/gradient2.frag
+    - lib/src/shaders/gradient3.frag
     - lib/src/shaders/perlin2.frag
     - lib/src/shaders/perlin3.frag
     - lib/src/shaders/perlin4.frag
+    - lib/src/shaders/random2.frag
+    - lib/src/shaders/random3.frag
+    - lib/src/shaders/random4.frag
+    - lib/src/shaders/signed_random2.frag
+    - lib/src/shaders/signed_random3.frag
+    - lib/src/shaders/signed_random4.frag
     - lib/src/shaders/simplex2.frag
     - lib/src/shaders/simplex3.frag
     - lib/src/shaders/simplex4.frag
+    - lib/src/shaders/tiling_fbm3.frag
+    - lib/src/shaders/tiling_gradient3.frag
     - lib/src/shaders/tiling_perlin2.frag
     - lib/src/shaders/tiling_perlin3.frag
     - lib/src/shaders/tiling_perlin4.frag
+    - lib/src/shaders/tiling_signed_random2.frag
+    - lib/src/shaders/tiling_signed_random3.frag
     - lib/src/shaders/tiling_simplex2.frag
     - lib/src/shaders/tiling_simplex3.frag
 

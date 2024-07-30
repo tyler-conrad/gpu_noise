@@ -1,0 +1,4 @@
+#define RANDOM_SINLESS
+#define OCTAVES 1
+#define FBM_OCTAVES OCTAVES
+#define FBM_SCALE_SCALAR 1.0

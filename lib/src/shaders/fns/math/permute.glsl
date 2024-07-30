@@ -1,4 +1,4 @@
-#include "mod289.glsl"
+#include "fns/math/mod289.glsl"
 
 /*
 contributors: [Stefan Gustavson, Ian McEwan]
