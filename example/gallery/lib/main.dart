@@ -10,9 +10,9 @@ import 'package:vector_math/vector_math.dart' as vm;
 
 import 'package:gpu_noise/gpu_noise.dart' as gn;
 
-double scale(m.Size size) => math.sqrt(size.width * size.height) * 0.00125;
+double _scale(m.Size size) => math.sqrt(size.width * size.height) * 0.00125;
 
-typedef PainterBuilder = gn.NoisePainter Function({
+typedef _PainterBuilder = gn.NoisePainter Function({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -32,7 +32,7 @@ typedef PainterBuilder = gn.NoisePainter Function({
   required double brightness,
 });
 
-gn.Noise2Painter noise2Painter({
+gn.Noise2Painter _noise2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -61,7 +61,7 @@ gn.Noise2Painter noise2Painter({
       brightness: brightness,
     );
 
-gn.Noise3Painter noise3Painter({
+gn.Noise3Painter _noise3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -90,7 +90,7 @@ gn.Noise3Painter noise3Painter({
       brightness: brightness,
     );
 
-gn.Noise4Painter noise4Painter({
+gn.Noise4Painter _noise4Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -119,7 +119,7 @@ gn.Noise4Painter noise4Painter({
       brightness: brightness,
     );
 
-gn.GerstnerWave2Painter gerstnerWave2Painter({
+gn.GerstnerWave2Painter _gerstnerWave2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -151,7 +151,7 @@ gn.GerstnerWave2Painter gerstnerWave2Painter({
       brightness: brightness,
     );
 
-gn.PrimitivePeriodTiling2Painter primitiveTiling2Painter({
+gn.PrimitivePeriodTiling2Painter _primitiveTiling2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -181,7 +181,7 @@ gn.PrimitivePeriodTiling2Painter primitiveTiling2Painter({
       brightness: brightness,
     );
 
-gn.PrimitivePeriodTiling3Painter primitiveTiling3Painter({
+gn.PrimitivePeriodTiling3Painter _primitiveTiling3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -211,7 +211,7 @@ gn.PrimitivePeriodTiling3Painter primitiveTiling3Painter({
       brightness: brightness,
     );
 
-gn.Tiling2Painter tiling2painter({
+gn.Tiling2Painter _tiling2painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -241,7 +241,7 @@ gn.Tiling2Painter tiling2painter({
       brightness: brightness,
     );
 
-gn.Tiling3Painter tiling3Painter({
+gn.Tiling3Painter _tiling3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -271,7 +271,7 @@ gn.Tiling3Painter tiling3Painter({
       brightness: brightness,
     );
 
-gn.Tiling4Painter tiling4Painter({
+gn.Tiling4Painter _tiling4Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -301,7 +301,7 @@ gn.Tiling4Painter tiling4Painter({
       brightness: brightness,
     );
 
-gn.TilingSimplex2Painter tilingSimplex2Painter({
+gn.TilingSimplexFlow2Painter _tilingSimplexFlow2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -320,7 +320,7 @@ gn.TilingSimplex2Painter tilingSimplex2Painter({
   required double scale,
   required double brightness,
 }) =>
-    gn.TilingSimplex2Painter(
+    gn.TilingSimplexFlow2Painter(
       repaint: repaint,
       shader: shader,
       size: size,
@@ -332,7 +332,7 @@ gn.TilingSimplex2Painter tilingSimplex2Painter({
       brightness: brightness,
     );
 
-gn.TilingSimplex3Painter tilingSimplex3Painter({
+gn.TilingSimplexFlow3Painter _tilingSimplexFlow3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -351,7 +351,7 @@ gn.TilingSimplex3Painter tilingSimplex3Painter({
   required double scale,
   required double brightness,
 }) =>
-    gn.TilingSimplex3Painter(
+    gn.TilingSimplexFlow3Painter(
       repaint: repaint,
       shader: shader,
       size: size,
@@ -366,7 +366,7 @@ gn.TilingSimplex3Painter tilingSimplex3Painter({
 class _Example {
   final String title;
   final String filename;
-  final PainterBuilder builder;
+  final _PainterBuilder builder;
 
   const _Example({
     required this.title,
@@ -379,174 +379,203 @@ const examples = [
   _Example(
     title: 'Cellular2',
     filename: 'cellular2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'Cellular2x2',
     filename: 'cellular2x2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'Cellular2x2x2',
     filename: 'cellular2x2x2.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'Cellular3',
     filename: 'cellular3.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'Curl2',
     filename: 'curl2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'Curl3',
     filename: 'curl3.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'Curl4',
     filename: 'curl4.frag',
-    builder: noise4Painter,
+    builder: _noise4Painter,
   ),
   _Example(
     title: 'FBM2',
     filename: 'fbm2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'FBM3',
     filename: 'fbm3.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'GerstnerWave2',
     filename: 'gerstner_wave2.frag',
-    builder: gerstnerWave2Painter,
+    builder: _gerstnerWave2Painter,
   ),
   _Example(
     title: 'Gradient2',
     filename: 'gradient2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'Gradient3',
     filename: 'gradient3.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'Perlin2',
     filename: 'perlin2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'Perlin3',
     filename: 'perlin3.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'Perlin4',
     filename: 'perlin4.frag',
-    builder: noise4Painter,
+    builder: _noise4Painter,
+  ),
+  _Example(
+    title: 'Psrd2',
+    filename: 'psrd2.frag',
+    builder: _noise2Painter,
+  ),
+  _Example(
+    title: 'Psrd3',
+    filename: 'psrd3.frag',
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'Random2',
     filename: 'random2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'Random3',
     filename: 'random3.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'Random4',
     filename: 'random4.frag',
-    builder: noise4Painter,
+    builder: _noise4Painter,
   ),
   _Example(
     title: 'SignedRandom2',
     filename: 'signed_random2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'SignedRandom3',
     filename: 'signed_random3.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'SignedRandom4',
     filename: 'signed_random4.frag',
-    builder: noise4Painter,
+    builder: _noise4Painter,
   ),
   _Example(
     title: 'Simplex2',
     filename: 'simplex2.frag',
-    builder: noise2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'Simplex3',
     filename: 'simplex3.frag',
-    builder: noise3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'Simplex4',
     filename: 'simplex4.frag',
-    builder: noise4Painter,
+    builder: _noise4Painter,
   ),
   _Example(
     title: 'TilingFBM3',
     filename: 'tiling_fbm3.frag',
-    builder: primitiveTiling3Painter,
+    builder: _primitiveTiling3Painter,
   ),
   _Example(
     title: 'TilingGradient3',
     filename: 'tiling_gradient3.frag',
-    builder: primitiveTiling3Painter,
+    builder: _primitiveTiling3Painter,
   ),
   _Example(
     title: 'TilingPerlin2',
     filename: 'tiling_perlin2.frag',
-    builder: tiling2painter,
+    builder: _tiling2painter,
   ),
   _Example(
     title: 'TilingPerlin3',
     filename: 'tiling_perlin3.frag',
-    builder: tiling3Painter,
+    builder: _tiling3Painter,
   ),
   _Example(
     title: 'TilingPerlin4',
     filename: 'tiling_perlin4.frag',
-    builder: tiling4Painter,
+    builder: _tiling4Painter,
+  ),
+  _Example(
+    title: 'TilingRotatingSimplex2',
+    filename: 'tiling_rotating_simplex2.frag',
+    builder: _tilingSimplexFlow2Painter,
+  ),
+  _Example(
+    title: 'TilingRotatingSimplex3',
+    filename: 'tiling_rotating_simplex3.frag',
+    builder: _tilingSimplexFlow3Painter,
   ),
   _Example(
     title: 'TilingSignedRandom2',
     filename: 'tiling_signed_random2.frag',
-    builder: primitiveTiling2Painter,
+    builder: _primitiveTiling2Painter,
   ),
   _Example(
     title: 'TilingSignedRandom3',
     filename: 'tiling_signed_random3.frag',
-    builder: primitiveTiling3Painter,
+    builder: _primitiveTiling3Painter,
   ),
   _Example(
     title: 'TilingSimplex2',
     filename: 'tiling_simplex2.frag',
-    builder: tilingSimplex2Painter,
+    builder: _tiling2painter,
   ),
   _Example(
     title: 'TilingSimplex3',
     filename: 'tiling_simplex3.frag',
-    builder: tilingSimplex3Painter,
+    builder: _tiling3Painter,
   ),
 ];
+
+// final shaders = Map.fromEntries(
+//       examples.map(
+//         (example) => MapEntry(
+//           example.filename,
+//           gn.load('../../lib/src/shaders/${example.filename}')
+//         ),
+//       ),
+//     ).map((key, value) => MapEntry(key, value.t));
 
 const color = m.Colors.red;
 const outline = m.Colors.cyan;
 
-List<m.Shadow> shadows() => List.generate(
+List<m.Shadow> _shadows() => List.generate(
       4,
       (_) => const m.Shadow(
         color: outline,
@@ -554,25 +583,12 @@ List<m.Shadow> shadows() => List.generate(
       ),
     );
 
-// class Notifier extends m.ChangeNotifier {
-//   void notify() => notifyListeners();
-// }
-
-class _ShaderWidget extends m.StatefulWidget {
-  final _Example example;
-
-  const _ShaderWidget({super.key, required this.example});
-
-  @override
-  m.State<_ShaderWidget> createState() => _ShaderWidgetState();
-}
-
-class Text extends m.StatelessWidget {
+class _Text extends m.StatelessWidget {
   final String text;
   final double fontSize;
   final m.Size size;
 
-  const Text(this.text, {super.key, this.fontSize = 12.0, required this.size});
+  const _Text(this.text, {this.fontSize = 12.0, required this.size});
 
   @override
   m.Widget build(m.BuildContext context) => m.Stack(
@@ -580,25 +596,24 @@ class Text extends m.StatelessWidget {
           m.Text(
             text,
             style: m.TextStyle(
-              fontSize: fontSize * scale(size),
+              fontSize: fontSize * _scale(size),
               fontWeight: m.FontWeight.bold,
               color: color,
-              shadows: shadows(),
+              shadows: _shadows(),
             ),
           ),
         ],
       );
 }
 
-class Slider extends m.StatelessWidget {
+class _Slider extends m.StatelessWidget {
   final double value;
   final double max;
   final String label;
   final void Function(double) onChanged;
 
-  const Slider(
-      {super.key,
-      required this.label,
+  const _Slider(
+      {required this.label,
       required this.value,
       required this.max,
       required this.onChanged});
@@ -646,7 +661,6 @@ class _NoisePainterControls extends m.StatelessWidget {
   final void Function(double) onBrightnessChanged;
 
   const _NoisePainterControls({
-    super.key,
     required this.size,
     required this.x,
     required this.y,
@@ -681,55 +695,55 @@ class _NoisePainterControls extends m.StatelessWidget {
           child: m.Column(
             children: [
               if (onSteepnessChanged != null)
-                Slider(
+                _Slider(
                   label: 'Steepness',
                   value: steepness!,
                   max: 1.0,
                   onChanged: onSteepnessChanged!,
                 ),
               if (wavelength != null && onWavelengthChanged != null)
-                Slider(
+                _Slider(
                   label: 'Wavelength',
                   value: wavelength!,
                   max: 32.0,
                   onChanged: onWavelengthChanged!,
                 ),
               if (z != null && onZChanged != null)
-                Slider(
+                _Slider(
                   label: 'Z',
                   value: z!,
                   max: 1.0,
                   onChanged: onZChanged!,
                 ),
               if (w != null && onWChanged != null)
-                Slider(
+                _Slider(
                   label: 'W',
                   value: w!,
                   max: 1.0,
                   onChanged: onWChanged!,
                 ),
               if (pz != null && onPzChanged != null)
-                Slider(
+                _Slider(
                   label: 'Period Z',
                   value: pz!,
                   max: 1024.0,
                   onChanged: onPzChanged!,
                 ),
               if (pw != null && onPwChanged != null)
-                Slider(
+                _Slider(
                   label: 'Period W',
                   value: pw!,
                   max: 1024.0,
                   onChanged: onPwChanged!,
                 ),
               if (alpha != null && onAlphaChanged != null)
-                Slider(
+                _Slider(
                   label: 'Alpha',
                   value: alpha!,
                   max: 2.0 * math.pi,
                   onChanged: onAlphaChanged!,
                 ),
-              Slider(
+              _Slider(
                 label: 'Brightness',
                 value: brightness,
                 max: 8.0,
@@ -739,7 +753,7 @@ class _NoisePainterControls extends m.StatelessWidget {
           ),
         ),
         m.SizedBox(
-          width: size.width * 0.3,
+          width: size.width * 0.35,
           height: size.height * 0.2,
           child: m.Padding(
             padding: const m.EdgeInsets.fromLTRB(
@@ -755,21 +769,21 @@ class _NoisePainterControls extends m.StatelessWidget {
                   mainAxisAlignment: m.MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: m.CrossAxisAlignment.start,
                   children: [
-                    Text('X: ${x.toStringAsFixed(2)}', size: size),
-                    Text('Y: ${y.toStringAsFixed(2)}', size: size),
-                    if (z == null && dirX == null) Text('', size: size),
+                    _Text('X: ${x.toStringAsFixed(2)}', size: size),
+                    _Text('Y: ${y.toStringAsFixed(2)}', size: size),
+                    if (z == null && dirX == null) _Text('', size: size),
                     if (z != null)
-                      Text('Z: ${z?.toStringAsFixed(2) ?? ''}', size: size),
+                      _Text('Z: ${z?.toStringAsFixed(2) ?? ''}', size: size),
                     if (dirX != null)
-                      Text(
+                      _Text(
                         'Dir X: ${dirX?.toStringAsFixed(2) ?? ''}',
                         size: size,
                       ),
-                    if (w == null && dirY == null) Text('', size: size),
+                    if (w == null && dirY == null) _Text('', size: size),
                     if (w != null)
-                      Text('W: ${w?.toStringAsFixed(2) ?? ''}', size: size),
+                      _Text('W: ${w?.toStringAsFixed(2) ?? ''}', size: size),
                     if (dirY != null)
-                      Text(
+                      _Text(
                         'Dir Y: ${dirY?.toStringAsFixed(2) ?? ''}',
                         size: size,
                       ),
@@ -780,27 +794,27 @@ class _NoisePainterControls extends m.StatelessWidget {
                     mainAxisAlignment: m.MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: m.CrossAxisAlignment.start,
                     children: [
-                      if (px == null) Text('', size: size),
+                      if (px == null) _Text('', size: size),
                       if (px != null)
-                        Text(
+                        _Text(
                           'Period X: ${px!.toStringAsFixed(2)}',
                           size: size,
                         ),
-                      if (py == null) Text('', size: size),
+                      if (py == null) _Text('', size: size),
                       if (py != null)
-                        Text(
+                        _Text(
                           'Period Y: ${py!.toStringAsFixed(2)}',
                           size: size,
                         ),
-                      if (pz == null) Text('', size: size),
+                      if (pz == null) _Text('', size: size),
                       if (pz != null)
-                        Text(
+                        _Text(
                           'Period Z: ${pz!.toStringAsFixed(2)}',
                           size: size,
                         ),
-                      if (pw == null) Text('', size: size),
+                      if (pw == null) _Text('', size: size),
                       if (pw != null)
-                        Text(
+                        _Text(
                           'Period W: ${pw!.toStringAsFixed(2)}',
                           size: size,
                         ),
@@ -810,21 +824,21 @@ class _NoisePainterControls extends m.StatelessWidget {
                   mainAxisAlignment: m.MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: m.CrossAxisAlignment.start,
                   children: [
-                    Text('Scale: ${scale.toStringAsFixed(2)}', size: size),
-                    Text('Brightness: ${brightness.toStringAsFixed(2)}',
+                    _Text('Scale: ${scale.toStringAsFixed(2)}', size: size),
+                    _Text('Brightness: ${brightness.toStringAsFixed(2)}',
                         size: size),
                     if (alpha == null && wavelength == null)
-                      Text('', size: size),
+                      _Text('', size: size),
                     if (alpha != null)
-                      Text('Alpha: ${alpha!.toStringAsFixed(2)}', size: size),
+                      _Text('Alpha: ${alpha!.toStringAsFixed(2)}', size: size),
                     if (wavelength != null)
-                      Text(
+                      _Text(
                         'Wavelength: ${wavelength?.toStringAsFixed(2) ?? ''}',
                         size: size,
                       ),
-                    if (steepness == null) Text('', size: size),
+                    if (steepness == null) _Text('', size: size),
                     if (steepness != null)
-                      Text(
+                      _Text(
                         'Steepness: ${steepness?.toStringAsFixed(2) ?? ''}',
                         size: size,
                       ),
@@ -839,9 +853,16 @@ class _NoisePainterControls extends m.StatelessWidget {
   }
 }
 
-class _ShaderWidgetState extends m.State<_ShaderWidget> {
-  // final notifier = Notifier();
+class _ShaderWidget extends m.StatefulWidget {
+  final _Example example;
 
+  const _ShaderWidget({required this.example});
+
+  @override
+  m.State<_ShaderWidget> createState() => _ShaderWidgetState();
+}
+
+class _ShaderWidgetState extends m.State<_ShaderWidget> {
   a.Timer? timer;
   ui.FragmentShader? shader;
 
@@ -866,17 +887,19 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
   @override
   void initState() {
     super.initState();
-    gn.load('../../lib/src/shaders/${widget.example.filename}').then((value) {
-      setState(() {
-        shader = value;
-      });
-      timer = a.Timer.periodic(
-        const Duration(microseconds: 33333),
-        (timer) {
-          elapsed = timer.tick / 30.0;
-        },
-      );
-    });
+    gn.load('../../lib/src/shaders/${widget.example.filename}').then(
+      (shader) {
+        setState(() {
+          this.shader = shader;
+        });
+        timer = a.Timer.periodic(
+          const Duration(microseconds: 33333),
+          (timer) {
+            elapsed = timer.tick / 30.0;
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -889,7 +912,7 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
   @override
   m.Widget build(m.BuildContext context) {
     return shader == null
-        ? m.Container()
+        ? const m.SizedBox.shrink()
         : m.LayoutBuilder(
             builder: (context, constraints) {
               final size = m.Size(constraints.maxWidth, constraints.maxHeight);
@@ -921,7 +944,6 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                           x -= event.delta.dx;
                           y -= event.delta.dy;
                         });
-                        // notifier.notify();
                       } else {
                         setState(() {
                           px += event.delta.dx * 0.1;
@@ -929,7 +951,6 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                           dirX += event.delta.dx * 0.01;
                           dirY += event.delta.dy * 0.01;
                         });
-                        // notifier.notify();
                       }
                     },
                     onPointerSignal: (event) {
@@ -938,12 +959,10 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                           setState(() {
                             scale += 1.0;
                           });
-                          // notifier.notify();
                         } else {
                           setState(() {
                             scale -= 1.0;
                           });
-                          // notifier.notify();
                         }
                       }
                     },
@@ -957,267 +976,270 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                       ),
                     ),
                   ),
-                  m.Column(
-                    children: [
-                      m.Center(
-                          child: Text(widget.example.title,
-                              fontSize: 16.0, size: size)),
-                      const m.Spacer(),
-                      if (painter is gn.Noise2Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          scale: scale,
-                          brightness: brightness,
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.Noise3Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          z: z,
-                          scale: scale,
-                          brightness: brightness,
-                          onZChanged: (value) {
-                            setState(() {
-                              z = value;
-                            });
-                          },
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.Noise4Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          z: z,
-                          w: w,
-                          scale: scale,
-                          brightness: brightness,
-                          onZChanged: (value) {
-                            setState(() {
-                              z = value;
-                            });
-                          },
-                          onWChanged: (value) {
-                            setState(() {
-                              w = value;
-                            });
-                          },
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.GerstnerWave2Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          dirX: dirX,
-                          dirY: dirY,
-                          steepness: steepness,
-                          wavelength: wavelength,
-                          scale: scale,
-                          brightness: brightness,
-                          onSteepnessChanged: (value) {
-                            setState(() {
-                              steepness = value;
-                            });
-                          },
-                          onWavelengthChanged: (value) {
-                            setState(() {
-                              wavelength = value;
-                            });
-                          },
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.PrimitivePeriodTiling2Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          px: px,
-                          scale: scale,
-                          brightness: brightness,
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.PrimitivePeriodTiling3Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          z: z,
-                          px: px,
-                          scale: scale,
-                          brightness: brightness,
-                          onZChanged: (value) {
-                            setState(() {
-                              z = value;
-                            });
-                          },
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.Tiling2Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          px: px,
-                          py: py,
-                          scale: scale,
-                          brightness: brightness,
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.Tiling3Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          z: z,
-                          px: px,
-                          py: py,
-                          pz: pz,
-                          scale: scale,
-                          brightness: brightness,
-                          onZChanged: (value) {
-                            setState(() {
-                              z = value;
-                            });
-                          },
-                          onPzChanged: (value) {
-                            setState(() {
-                              pz = value;
-                            });
-                          },
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.Tiling4Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          z: z,
-                          w: w,
-                          px: px,
-                          py: py,
-                          pz: pz,
-                          pw: pw,
-                          scale: scale,
-                          brightness: brightness,
-                          onZChanged: (value) {
-                            setState(() {
-                              z = value;
-                            });
-                          },
-                          onWChanged: (value) {
-                            setState(() {
-                              w = value;
-                            });
-                          },
-                          onPzChanged: (value) {
-                            setState(() {
-                              pz = value;
-                            });
-                          },
-                          onPwChanged: (value) {
-                            setState(() {
-                              pw = value;
-                            });
-                          },
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.TilingSimplex2Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          px: px,
-                          py: py,
-                          alpha: alpha,
-                          scale: scale,
-                          brightness: brightness,
-                          onAlphaChanged: (value) {
-                            setState(() {
-                              alpha = value;
-                            });
-                          },
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      if (painter is gn.TilingSimplex3Painter)
-                        _NoisePainterControls(
-                          size: size,
-                          x: x,
-                          y: y,
-                          z: z,
-                          px: px,
-                          py: py,
-                          pz: pz,
-                          alpha: alpha,
-                          scale: scale,
-                          brightness: brightness,
-                          onZChanged: (value) {
-                            setState(() {
-                              z = value;
-                            });
-                          },
-                          onPzChanged: (value) {
-                            setState(() {
-                              pz = value;
-                            });
-                          },
-                          onAlphaChanged: (value) {
-                            setState(() {
-                              alpha = value;
-                            });
-                          },
-                          onBrightnessChanged: (value) {
-                            setState(() {
-                              brightness = value;
-                            });
-                          },
-                        ),
-                      const m.SizedBox(height: 24.0),
-                    ],
+                  m.SizedBox(
+                    height: size.height * 0.95,
+                    child: m.Column(
+                      children: [
+                        m.Center(
+                            child: _Text(widget.example.title,
+                                fontSize: 16.0, size: size)),
+                        const m.Spacer(),
+                        if (painter is gn.Noise2Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            scale: scale,
+                            brightness: brightness,
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.Noise3Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            z: z,
+                            scale: scale,
+                            brightness: brightness,
+                            onZChanged: (value) {
+                              setState(() {
+                                z = value;
+                              });
+                            },
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.Noise4Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            z: z,
+                            w: w,
+                            scale: scale,
+                            brightness: brightness,
+                            onZChanged: (value) {
+                              setState(() {
+                                z = value;
+                              });
+                            },
+                            onWChanged: (value) {
+                              setState(() {
+                                w = value;
+                              });
+                            },
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.GerstnerWave2Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            dirX: dirX,
+                            dirY: dirY,
+                            steepness: steepness,
+                            wavelength: wavelength,
+                            scale: scale,
+                            brightness: brightness,
+                            onSteepnessChanged: (value) {
+                              setState(() {
+                                steepness = value;
+                              });
+                            },
+                            onWavelengthChanged: (value) {
+                              setState(() {
+                                wavelength = value;
+                              });
+                            },
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.PrimitivePeriodTiling2Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            px: px,
+                            scale: scale,
+                            brightness: brightness,
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.PrimitivePeriodTiling3Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            z: z,
+                            px: px,
+                            scale: scale,
+                            brightness: brightness,
+                            onZChanged: (value) {
+                              setState(() {
+                                z = value;
+                              });
+                            },
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.Tiling2Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            px: px,
+                            py: py,
+                            scale: scale,
+                            brightness: brightness,
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.Tiling3Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            z: z,
+                            px: px,
+                            py: py,
+                            pz: pz,
+                            scale: scale,
+                            brightness: brightness,
+                            onZChanged: (value) {
+                              setState(() {
+                                z = value;
+                              });
+                            },
+                            onPzChanged: (value) {
+                              setState(() {
+                                pz = value;
+                              });
+                            },
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.Tiling4Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            z: z,
+                            w: w,
+                            px: px,
+                            py: py,
+                            pz: pz,
+                            pw: pw,
+                            scale: scale,
+                            brightness: brightness,
+                            onZChanged: (value) {
+                              setState(() {
+                                z = value;
+                              });
+                            },
+                            onWChanged: (value) {
+                              setState(() {
+                                w = value;
+                              });
+                            },
+                            onPzChanged: (value) {
+                              setState(() {
+                                pz = value;
+                              });
+                            },
+                            onPwChanged: (value) {
+                              setState(() {
+                                pw = value;
+                              });
+                            },
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.TilingSimplexFlow2Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            px: px,
+                            py: py,
+                            alpha: alpha,
+                            scale: scale,
+                            brightness: brightness,
+                            onAlphaChanged: (value) {
+                              setState(() {
+                                alpha = value;
+                              });
+                            },
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        if (painter is gn.TilingSimplexFlow3Painter)
+                          _NoisePainterControls(
+                            size: size,
+                            x: x,
+                            y: y,
+                            z: z,
+                            px: px,
+                            py: py,
+                            pz: pz,
+                            alpha: alpha,
+                            scale: scale,
+                            brightness: brightness,
+                            onZChanged: (value) {
+                              setState(() {
+                                z = value;
+                              });
+                            },
+                            onPzChanged: (value) {
+                              setState(() {
+                                pz = value;
+                              });
+                            },
+                            onAlphaChanged: (value) {
+                              setState(() {
+                                alpha = value;
+                              });
+                            },
+                            onBrightnessChanged: (value) {
+                              setState(() {
+                                brightness = value;
+                              });
+                            },
+                          ),
+                        const m.SizedBox(height: 24.0),
+                      ],
+                    ),
                   ),
                 ],
               );
@@ -1226,75 +1248,32 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
   }
 }
 
-class PageIndicator extends m.StatelessWidget {
-  const PageIndicator({
-    super.key,
-    required this.tabController,
-    required this.currentPageIndex,
-    required this.onUpdateCurrentPageIndex,
-    required this.isOnDesktopAndWeb,
-  });
+class ChangePageButton extends m.StatelessWidget {
+  final m.IconData icon;
+  final void Function() onPressed;
 
-  final int currentPageIndex;
-  final m.TabController tabController;
-  final void Function(int) onUpdateCurrentPageIndex;
-  final bool isOnDesktopAndWeb;
+  const ChangePageButton({
+    super.key,
+    required this.icon,
+    required this.onPressed,
+  });
 
   @override
   m.Widget build(m.BuildContext context) {
-    if (!isOnDesktopAndWeb) {
-      return const m.SizedBox.shrink();
-    }
-    return m.Padding(
-      padding: const m.EdgeInsets.all(8.0),
-      child: m.Row(
-        mainAxisAlignment: m.MainAxisAlignment.center,
-        children: <m.Widget>[
-          m.IconButton(
-            splashRadius: 16.0,
-            padding: m.EdgeInsets.zero,
-            onPressed: () {
-              if (currentPageIndex == 0) {
-                return;
-              }
-              onUpdateCurrentPageIndex(currentPageIndex - 1);
-            },
-            icon: m.Icon(
-              m.Icons.arrow_left_rounded,
-              color: color,
-              size: 32.0,
-              shadows: shadows(),
-            ),
-          ),
-          m.TabPageSelector(
-            controller: tabController,
-            color: color,
-            selectedColor: outline,
-          ),
-          m.IconButton(
-            splashRadius: 16.0,
-            padding: m.EdgeInsets.zero,
-            onPressed: () {
-              if (currentPageIndex == examples.length - 1) {
-                return;
-              }
-              onUpdateCurrentPageIndex(currentPageIndex + 1);
-            },
-            icon: m.Icon(
-              m.Icons.arrow_right_rounded,
-              color: color,
-              size: 32.0,
-              shadows: shadows(),
-            ),
-          ),
-        ],
+    return m.IconButton(
+      icon: m.Icon(icon),
+      style: m.ButtonStyle(
+        backgroundColor: m.WidgetStateProperty.all(color),
+        elevation: m.WidgetStateProperty.all(3.0),
+        shadowColor: m.WidgetStateProperty.all(outline),
       ),
+      onPressed: onPressed,
     );
   }
 }
 
 class _GpuNoiseGallery extends m.StatefulWidget {
-  const _GpuNoiseGallery({super.key});
+  const _GpuNoiseGallery();
 
   @override
   m.State<_GpuNoiseGallery> createState() => _GpuNoiseGalleryState();
@@ -1302,68 +1281,89 @@ class _GpuNoiseGallery extends m.StatefulWidget {
 
 class _GpuNoiseGalleryState extends m.State<_GpuNoiseGallery>
     with m.TickerProviderStateMixin {
+  static const inset = 16.0;
+
   late m.PageController _pageViewController;
-  late m.TabController _tabController;
   int _currentPageIndex = 0;
 
   @override
   void initState() {
     super.initState();
     _pageViewController = m.PageController();
-    _tabController = m.TabController(length: examples.length, vsync: this);
   }
 
   @override
   void dispose() {
     super.dispose();
     _pageViewController.dispose();
-    _tabController.dispose();
   }
 
   @override
   m.Widget build(m.BuildContext context) {
-    return m.MaterialApp(
-      home: m.Scaffold(
-        body: m.Stack(
-          alignment: m.Alignment.bottomCenter,
-          children: <m.Widget>[
-            m.PageView(
-                controller: _pageViewController,
-                onPageChanged: _handlePageViewChanged,
-                children: examples.map((example) {
-                  return _ShaderWidget(
-                    example: example,
-                  );
-                }).toList()),
-            PageIndicator(
-              tabController: _tabController,
-              currentPageIndex: _currentPageIndex,
-              onUpdateCurrentPageIndex: _updateCurrentPageIndex,
-              isOnDesktopAndWeb: _isOnDesktopAndWeb,
-            ),
-          ],
-        ),
+    return m.MaterialApp(home: m.Scaffold(
+      body: m.LayoutBuilder(
+        builder: (context, constraints) {
+          return m.Stack(
+            children: [
+              m.PageView(
+                  controller: _pageViewController,
+                  onPageChanged: _handlePageViewChanged,
+                  children: examples.map((example) {
+                    return _ShaderWidget(
+                      example: example,
+                    );
+                  }).toList()),
+              m.Positioned(
+                bottom: inset,
+                left: inset,
+                child: ChangePageButton(
+                  icon: m.Icons.arrow_left_rounded,
+                  onPressed: () {
+                    if (_currentPageIndex == 0) {
+                      _pageViewController.jumpToPage(examples.length - 1);
+                      return;
+                    }
+                    _pageViewController.animateToPage(
+                      _currentPageIndex - 1,
+                      duration: const Duration(milliseconds: 300),
+                      curve: m.Curves.easeInOut,
+                    );
+                  },
+                ),
+              ),
+              m.Positioned(
+                bottom: inset,
+                right: inset,
+                child: ChangePageButton(
+                  icon: m.Icons.arrow_right_rounded,
+                  onPressed: () {
+                    if (_currentPageIndex == examples.length - 1) {
+                      _pageViewController.jumpToPage(0);
+                      return;
+                    }
+
+                    _pageViewController.animateToPage(
+                      _currentPageIndex + 1,
+                      duration: const Duration(milliseconds: 300),
+                      curve: m.Curves.easeInOut,
+                    );
+                  },
+                ),
+              ),
+            ],
+          );
+        },
       ),
-    );
+    ));
   }
 
   void _handlePageViewChanged(int currentPageIndex) {
     if (!_isOnDesktopAndWeb) {
       return;
     }
-    _tabController.index = currentPageIndex;
     setState(() {
       _currentPageIndex = currentPageIndex;
     });
-  }
-
-  void _updateCurrentPageIndex(int index) {
-    _tabController.index = index;
-    _pageViewController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 400),
-      curve: m.Curves.easeInOut,
-    );
   }
 
   bool get _isOnDesktopAndWeb {

@@ -78,6 +78,8 @@ flutter:
     - ../../lib/src/shaders/perlin2.frag
     - ../../lib/src/shaders/perlin3.frag
     - ../../lib/src/shaders/perlin4.frag
+    - ../../lib/src/shaders/psrd2.frag
+    - ../../lib/src/shaders/psrd3.frag
     - ../../lib/src/shaders/random2.frag
     - ../../lib/src/shaders/random3.frag
     - ../../lib/src/shaders/random4.frag
@@ -92,6 +94,8 @@ flutter:
     - ../../lib/src/shaders/tiling_perlin2.frag
     - ../../lib/src/shaders/tiling_perlin3.frag
     - ../../lib/src/shaders/tiling_perlin4.frag
+    - ../../lib/src/shaders/tiling_rotating_simplex2.frag
+    - ../../lib/src/shaders/tiling_rotating_simplex3.frag
     - ../../lib/src/shaders/tiling_signed_random2.frag
     - ../../lib/src/shaders/tiling_signed_random3.frag
     - ../../lib/src/shaders/tiling_simplex2.frag

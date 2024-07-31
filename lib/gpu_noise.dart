@@ -302,10 +302,10 @@ mixin _Tiling2Painter on NoisePainter {
   @override
   bool shouldRepaint(_Tiling2Painter oldDelegate) =>
       oldDelegate.shader != shader ||
-          oldDelegate.size != size ||
-          oldDelegate.xy != xy ||
-          oldDelegate.scale != scale ||
-          oldDelegate.brightness != brightness;
+      oldDelegate.size != size ||
+      oldDelegate.xy != xy ||
+      oldDelegate.scale != scale ||
+      oldDelegate.brightness != brightness;
 }
 
 class Tiling2Painter extends NoisePainter with _Tiling2Painter {
@@ -326,14 +326,114 @@ class Tiling2Painter extends NoisePainter with _Tiling2Painter {
   });
 }
 
-class TilingSimplex2Painter extends NoisePainter with _Tiling2Painter {
+mixin _Tiling3Painter on NoisePainter {
+  vm.Vector3 get xyz;
+  vm.Vector3 get period;
+
+  @override
+  void paint(ui.Canvas canvas, ui.Size size) {
+    shader.setFloat(0, size.width);
+    shader.setFloat(1, size.height);
+    shader.setFloat(2, time);
+    shader.setFloat(3, xyz.x);
+    shader.setFloat(4, xyz.y);
+    shader.setFloat(5, xyz.z);
+    shader.setFloat(6, period.x);
+    shader.setFloat(7, period.y);
+    shader.setFloat(8, period.z);
+    shader.setFloat(9, scale);
+    shader.setFloat(10, brightness);
+
+    canvas.drawRect(ui.Offset.zero & size, shaderPaint..shader = shader);
+  }
+
+  @override
+  bool shouldRepaint(_Tiling3Painter oldDelegate) =>
+      oldDelegate.shader != shader ||
+      oldDelegate.size != size ||
+      oldDelegate.xyz != xyz ||
+      oldDelegate.period != period ||
+      oldDelegate.scale != scale ||
+      oldDelegate.brightness != brightness;
+}
+
+class Tiling3Painter extends NoisePainter with _Tiling3Painter {
+  @override
+  final vm.Vector3 xyz;
+  @override
+  final vm.Vector3 period;
+
+  Tiling3Painter({
+    super.repaint,
+    required super.shader,
+    required super.size,
+    required super.time,
+    required this.xyz,
+    required this.period,
+    required super.scale,
+    required super.brightness,
+  });
+}
+
+mixin _Tiling4Painter on NoisePainter {
+  vm.Vector4 get xyzw;
+  vm.Vector4 get period;
+
+  @override
+  void paint(ui.Canvas canvas, ui.Size size) {
+    shader.setFloat(0, size.width);
+    shader.setFloat(1, size.height);
+    shader.setFloat(2, time);
+    shader.setFloat(3, xyzw.x);
+    shader.setFloat(4, xyzw.y);
+    shader.setFloat(5, xyzw.z);
+    shader.setFloat(6, xyzw.w);
+    shader.setFloat(7, period.x);
+    shader.setFloat(8, period.y);
+    shader.setFloat(9, period.z);
+    shader.setFloat(10, period.w);
+    shader.setFloat(11, scale);
+    shader.setFloat(12, brightness);
+
+    canvas.drawRect(ui.Offset.zero & size, shaderPaint..shader = shader);
+  }
+
+  @override
+  bool shouldRepaint(_Tiling4Painter oldDelegate) =>
+      oldDelegate.shader != shader ||
+      oldDelegate.size != size ||
+      oldDelegate.xyzw != xyzw ||
+      oldDelegate.period != period ||
+      oldDelegate.scale != scale ||
+      oldDelegate.brightness != brightness;
+}
+
+class Tiling4Painter extends NoisePainter with _Tiling4Painter {
+  @override
+  final vm.Vector4 xyzw;
+  @override
+  final vm.Vector4 period;
+
+  Tiling4Painter({
+    super.repaint,
+    required super.shader,
+    required super.size,
+    required super.time,
+    required this.xyzw,
+    required this.period,
+    required super.scale,
+    required super.brightness,
+  });
+}
+
+class TilingSimplexFlow2Painter extends NoisePainter with _Tiling2Painter {
   @override
   final vm.Vector2 xy;
   @override
   final vm.Vector2 period;
   final double alpha;
 
-  TilingSimplex2Painter({
+  TilingSimplexFlow2Painter({
     super.repaint,
     required super.shader,
     required super.size,
@@ -362,73 +462,24 @@ class TilingSimplex2Painter extends NoisePainter with _Tiling2Painter {
   }
 
   @override
-  bool shouldRepaint(TilingSimplex2Painter oldDelegate) =>
+  bool shouldRepaint(TilingSimplexFlow2Painter oldDelegate) =>
       oldDelegate.shader != shader ||
-          oldDelegate.size != size ||
-          oldDelegate.xy != xy ||
-          oldDelegate.period != period ||
-          oldDelegate.alpha != alpha ||
-          oldDelegate.scale != scale ||
-          oldDelegate.brightness != brightness;
+      oldDelegate.size != size ||
+      oldDelegate.xy != xy ||
+      oldDelegate.period != period ||
+      oldDelegate.alpha != alpha ||
+      oldDelegate.scale != scale ||
+      oldDelegate.brightness != brightness;
 }
 
-mixin _Tiling3Painter on NoisePainter {
-  vm.Vector3 get xyz;
-  vm.Vector3 get period;
-
-  @override
-  void paint(ui.Canvas canvas, ui.Size size) {
-    shader.setFloat(0, size.width);
-    shader.setFloat(1, size.height);
-    shader.setFloat(2, time);
-    shader.setFloat(3, xyz.x);
-    shader.setFloat(4, xyz.y);
-    shader.setFloat(5, xyz.z);
-    shader.setFloat(6, period.x);
-    shader.setFloat(7, period.y);
-    shader.setFloat(8, period.z);
-    shader.setFloat(9, scale);
-    shader.setFloat(10, brightness);
-
-    canvas.drawRect(ui.Offset.zero & size, shaderPaint..shader = shader);
-  }
-
-  @override
-  bool shouldRepaint(_Tiling3Painter oldDelegate) =>
-      oldDelegate.shader != shader ||
-          oldDelegate.size != size ||
-          oldDelegate.xyz != xyz ||
-          oldDelegate.period != period ||
-          oldDelegate.scale != scale ||
-          oldDelegate.brightness != brightness;
-}
-
-class Tiling3Painter extends NoisePainter with _Tiling3Painter {
-  @override
-  final vm.Vector3 xyz;
-  @override
-  final vm.Vector3 period;
-
-  Tiling3Painter({
-    super.repaint,
-    required super.shader,
-    required super.size,
-    required super.time,
-    required this.xyz,
-    required this.period,
-    required super.scale,
-    required super.brightness,
-  });
-}
-
-class TilingSimplex3Painter extends NoisePainter with _Tiling3Painter {
+class TilingSimplexFlow3Painter extends NoisePainter with _Tiling3Painter {
   @override
   final vm.Vector3 xyz;
   @override
   final vm.Vector3 period;
   final double alpha;
 
-  TilingSimplex3Painter({
+  TilingSimplexFlow3Painter({
     super.repaint,
     required super.shader,
     required super.size,
@@ -459,7 +510,7 @@ class TilingSimplex3Painter extends NoisePainter with _Tiling3Painter {
   }
 
   @override
-  bool shouldRepaint(TilingSimplex3Painter oldDelegate) =>
+  bool shouldRepaint(TilingSimplexFlow3Painter oldDelegate) =>
       oldDelegate.shader != shader ||
       oldDelegate.size != size ||
       oldDelegate.xyz != xyz ||
@@ -467,55 +518,4 @@ class TilingSimplex3Painter extends NoisePainter with _Tiling3Painter {
       oldDelegate.alpha != alpha ||
       oldDelegate.scale != scale ||
       oldDelegate.brightness != brightness;
-}
-
-mixin _Tiling4Painter on NoisePainter {
-  vm.Vector4 get xyzw;
-  vm.Vector4 get period;
-
-  @override
-  void paint(ui.Canvas canvas, ui.Size size) {
-    shader.setFloat(0, size.width);
-    shader.setFloat(1, size.height);
-    shader.setFloat(2, time);
-    shader.setFloat(3, xyzw.x);
-    shader.setFloat(4, xyzw.y);
-    shader.setFloat(5, xyzw.z);
-    shader.setFloat(6, xyzw.w);
-    shader.setFloat(7, period.x);
-    shader.setFloat(8, period.y);
-    shader.setFloat(9, period.z);
-    shader.setFloat(10, period.w);
-    shader.setFloat(11, scale);
-    shader.setFloat(12, brightness);
-
-    canvas.drawRect(ui.Offset.zero & size, shaderPaint..shader = shader);
-  }
-
-  @override
-  bool shouldRepaint(_Tiling4Painter oldDelegate) =>
-      oldDelegate.shader != shader ||
-          oldDelegate.size != size ||
-          oldDelegate.xyzw != xyzw ||
-          oldDelegate.period != period ||
-          oldDelegate.scale != scale ||
-          oldDelegate.brightness != brightness;
-}
-
-class Tiling4Painter extends NoisePainter with _Tiling4Painter {
-  @override
-  final vm.Vector4 xyzw;
-  @override
-  final vm.Vector4 period;
-
-  Tiling4Painter({
-    super.repaint,
-    required super.shader,
-    required super.size,
-    required super.time,
-    required this.xyzw,
-    required this.period,
-    required super.scale,
-    required super.brightness,
-  });
 }
