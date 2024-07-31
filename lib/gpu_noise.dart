@@ -1667,17 +1667,24 @@ class NoiseBytes {
 
   Future<void> load() async {
     _bytes = await _image.toByteData();
-    if (_bytes == null)
+    if (_bytes == null) {
       throw ImageDecodeException('Image().toByteData() returned null.');
+    }
   }
 
   int byte(int x, int y) {
-    if (x < 0) throw StateError('x must be greater than or equal to 0.');
-    if (x >= _image.width)
+    if (x < 0) {
+      throw StateError('x must be greater than or equal to 0.');
+    }
+    if (x >= _image.width) {
       throw StateError('x must be less than ${_image.width}.');
-    if (y < 0) throw StateError('y must be greater than or equal to 0.');
-    if (y >= _image.height)
+    }
+    if (y < 0) {
+      throw StateError('y must be greater than or equal to 0.');
+    }
+    if (y >= _image.height) {
       throw StateError('y must be less than ${_image.height}.');
+    }
     return _bytes!.getUint8((x + y * _image.width) * channels);
   }
 }
