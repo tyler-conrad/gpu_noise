@@ -1157,7 +1157,7 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
   double time = 0.0;
   double alpha = 0.0;
   double phase = 0.0;
-  double k = 0.0;
+  double k = 0.5;
   double scale = 64.0;
   double brightness = 1.0;
 
