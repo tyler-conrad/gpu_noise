@@ -215,7 +215,7 @@ gn.PrimitivePeriodTiling2Painter _primitiveTiling2Painter({
       brightness: brightness,
     );
 
-gn.PrimitivePeriodTiling3Painter _primitiveTiling3Painter({
+gn.PrimitivePeriodTiling3Painter _primitivePeriodTiling3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
   required m.Size size,
@@ -417,72 +417,6 @@ gn.TilingSimplexFlow3Painter _tilingSimplexFlow3Painter({
       xyz: xyz,
       period: period3,
       alpha: alpha,
-      scale: scale,
-      brightness: brightness,
-    );
-
-gn.Noise2Painter _voronoi2Painter({
-  m.Listenable? repaint,
-  required ui.FragmentShader shader,
-  required m.Size size,
-  required double elapsed,
-  required vm.Vector2 xy,
-  required vm.Vector3 xyz,
-  required vm.Vector4 xyzw,
-  required vm.Vector2 uv,
-  required double period,
-  required vm.Vector2 period2,
-  required vm.Vector3 period3,
-  required vm.Vector4 period4,
-  required vm.Vector2 dir,
-  required double steepness,
-  required double wavelength,
-  required double time,
-  required double alpha,
-  required double phase,
-  required double k,
-  required double scale,
-  required double brightness,
-}) =>
-    gn.Noise2Painter(
-      repaint: repaint,
-      shader: shader,
-      size: size,
-      elapsed: elapsed,
-      xy: xy,
-      scale: scale,
-      brightness: brightness,
-    );
-
-gn.Noise3Painter _voronoi3Painter({
-  m.Listenable? repaint,
-  required ui.FragmentShader shader,
-  required m.Size size,
-  required double elapsed,
-  required vm.Vector2 xy,
-  required vm.Vector3 xyz,
-  required vm.Vector4 xyzw,
-  required vm.Vector2 uv,
-  required double period,
-  required vm.Vector2 period2,
-  required vm.Vector3 period3,
-  required vm.Vector4 period4,
-  required vm.Vector2 dir,
-  required double steepness,
-  required double wavelength,
-  required double time,
-  required double alpha,
-  required double phase,
-  required double k,
-  required double scale,
-  required double brightness,
-}) =>
-    gn.Noise3Painter(
-      repaint: repaint,
-      shader: shader,
-      size: size,
-      elapsed: elapsed,
-      xyz: xyz,
       scale: scale,
       brightness: brightness,
     );
@@ -770,12 +704,12 @@ const examples = [
   _Example(
     title: 'TilingFBM3',
     filename: 'tiling_fbm3.frag',
-    builder: _primitiveTiling3Painter,
+    builder: _primitivePeriodTiling3Painter,
   ),
   _Example(
     title: 'TilingGradient3',
     filename: 'tiling_gradient3.frag',
-    builder: _primitiveTiling3Painter,
+    builder: _primitivePeriodTiling3Painter,
   ),
   _Example(
     title: 'TilingPerlin2',
@@ -793,16 +727,6 @@ const examples = [
     builder: _tiling4Painter,
   ),
   _Example(
-    title: 'TilingRotatingSimplex2',
-    filename: 'tiling_rotating_simplex2.frag',
-    builder: _tilingSimplexFlow2Painter,
-  ),
-  _Example(
-    title: 'TilingRotatingSimplex3',
-    filename: 'tiling_rotating_simplex3.frag',
-    builder: _tilingSimplexFlow3Painter,
-  ),
-  _Example(
     title: 'TilingSignedRandom2',
     filename: 'tiling_signed_random2.frag',
     builder: _primitiveTiling2Painter,
@@ -810,7 +734,7 @@ const examples = [
   _Example(
     title: 'TilingSignedRandom3',
     filename: 'tiling_signed_random3.frag',
-    builder: _primitiveTiling3Painter,
+    builder: _primitivePeriodTiling3Painter,
   ),
   _Example(
     title: 'TilingSimplex2',
@@ -823,14 +747,24 @@ const examples = [
     builder: _tiling3Painter,
   ),
   _Example(
+    title: 'TilingSimplexFlow2',
+    filename: 'tiling_simplex_flow2.frag',
+    builder: _tilingSimplexFlow2Painter,
+  ),
+  _Example(
+    title: 'TilingSimplexFlow3',
+    filename: 'tiling_simplex_flow3.frag',
+    builder: _tilingSimplexFlow3Painter,
+  ),
+  _Example(
     title: 'Voronoi2',
     filename: 'voronoi2.frag',
-    builder: _voronoi2Painter,
+    builder: _noise2Painter,
   ),
   _Example(
     title: 'Voronoi3',
     filename: 'voronoi3.frag',
-    builder: _voronoi3Painter,
+    builder: _noise3Painter,
   ),
   _Example(
     title: 'VoronoiTime2',
@@ -851,6 +785,16 @@ const examples = [
     title: 'Wavelet2',
     filename: 'wavelet2.frag',
     builder: _wavelet2Painter,
+  ),
+  _Example(
+    title: 'Worley2',
+    filename: 'worley2.frag',
+    builder: _noise2Painter,
+  ),
+  _Example(
+    title: 'Worley3',
+    filename: 'worley3.frag',
+    builder: _noise3Painter,
   ),
 ];
 

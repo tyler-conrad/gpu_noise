@@ -94,18 +94,20 @@ flutter:
     - ../../lib/src/shaders/tiling_perlin2.frag
     - ../../lib/src/shaders/tiling_perlin3.frag
     - ../../lib/src/shaders/tiling_perlin4.frag
-    - ../../lib/src/shaders/tiling_rotating_simplex2.frag
-    - ../../lib/src/shaders/tiling_rotating_simplex3.frag
     - ../../lib/src/shaders/tiling_signed_random2.frag
     - ../../lib/src/shaders/tiling_signed_random3.frag
     - ../../lib/src/shaders/tiling_simplex2.frag
     - ../../lib/src/shaders/tiling_simplex3.frag
+    - ../../lib/src/shaders/tiling_simplex_flow2.frag
+    - ../../lib/src/shaders/tiling_simplex_flow3.frag
     - ../../lib/src/shaders/voronoi2.frag
     - ../../lib/src/shaders/voronoi3.frag
     - ../../lib/src/shaders/voronoi_time2.frag
     - ../../lib/src/shaders/voronoise2.frag
     - ../../lib/src/shaders/voronoise3.frag
     - ../../lib/src/shaders/wavelet2.frag
+    - ../../lib/src/shaders/worley2.frag
+    - ../../lib/src/shaders/worley3.frag
 
   # To add assets to your application, add an assets section, like this:
   # assets:
