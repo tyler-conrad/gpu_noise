@@ -4,9 +4,9 @@
 
 uniform vec2 size;
 uniform float elapsed;
-uniform vec4 xyzw;
 uniform float scale;
 uniform float brightness;
+uniform vec4 xyzw;
 
 out vec4 fragColor;
 

@@ -5,10 +5,10 @@
 
 uniform vec2 size;
 uniform float elapsed;
-uniform vec2 xy;
-uniform float period;
 uniform float scale;
 uniform float brightness;
+uniform vec2 xy;
+uniform float period;
 
 out vec4 fragColor;
 

@@ -26,6 +26,8 @@ typedef _PainterBuilder = gn.NoisePainter Function({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -41,8 +43,6 @@ typedef _PainterBuilder = gn.NoisePainter Function({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 });
 
 gn.Noise2Painter _noise2Painter({
@@ -50,6 +50,8 @@ gn.Noise2Painter _noise2Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -65,8 +67,6 @@ gn.Noise2Painter _noise2Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Noise2Painter(
       repaint: repaint,
@@ -83,6 +83,8 @@ gn.Noise3Painter _noise3Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -98,8 +100,6 @@ gn.Noise3Painter _noise3Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Noise3Painter(
       repaint: repaint,
@@ -116,6 +116,8 @@ gn.Noise4Painter _noise4Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -131,8 +133,6 @@ gn.Noise4Painter _noise4Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Noise4Painter(
       repaint: repaint,
@@ -149,6 +149,8 @@ gn.GerstnerWave2Painter _gerstnerWave2Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -164,8 +166,6 @@ gn.GerstnerWave2Painter _gerstnerWave2Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.GerstnerWave2Painter(
       repaint: repaint,
@@ -186,6 +186,8 @@ gn.PrimitivePeriodTiling2Painter _primitiveTiling2Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -201,8 +203,6 @@ gn.PrimitivePeriodTiling2Painter _primitiveTiling2Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.PrimitivePeriodTiling2Painter(
       repaint: repaint,
@@ -220,6 +220,8 @@ gn.PrimitivePeriodTiling3Painter _primitivePeriodTiling3Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -235,8 +237,6 @@ gn.PrimitivePeriodTiling3Painter _primitivePeriodTiling3Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.PrimitivePeriodTiling3Painter(
       repaint: repaint,
@@ -254,6 +254,8 @@ gn.Tiling2Painter _tiling2painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -269,8 +271,6 @@ gn.Tiling2Painter _tiling2painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Tiling2Painter(
       repaint: repaint,
@@ -288,6 +288,8 @@ gn.Tiling3Painter _tiling3Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -303,8 +305,6 @@ gn.Tiling3Painter _tiling3Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Tiling3Painter(
       repaint: repaint,
@@ -322,6 +322,8 @@ gn.Tiling4Painter _tiling4Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -337,8 +339,6 @@ gn.Tiling4Painter _tiling4Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Tiling4Painter(
       repaint: repaint,
@@ -356,6 +356,8 @@ gn.TilingSimplexFlow2Painter _tilingSimplexFlow2Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -371,8 +373,6 @@ gn.TilingSimplexFlow2Painter _tilingSimplexFlow2Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.TilingSimplexFlow2Painter(
       repaint: repaint,
@@ -391,6 +391,8 @@ gn.TilingSimplexFlow3Painter _tilingSimplexFlow3Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -406,8 +408,6 @@ gn.TilingSimplexFlow3Painter _tilingSimplexFlow3Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.TilingSimplexFlow3Painter(
       repaint: repaint,
@@ -426,6 +426,8 @@ gn.VoronoiTime2Painter _voronoiTime2Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -441,8 +443,6 @@ gn.VoronoiTime2Painter _voronoiTime2Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.VoronoiTime2Painter(
       repaint: repaint,
@@ -460,6 +460,8 @@ gn.Voronoise2Painter _voronoise2Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -475,8 +477,6 @@ gn.Voronoise2Painter _voronoise2Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Voronoise2Painter(
       repaint: repaint,
@@ -494,6 +494,8 @@ gn.Voronoise3Painter _voronoise3Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -509,8 +511,6 @@ gn.Voronoise3Painter _voronoise3Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Voronoise3Painter(
       repaint: repaint,
@@ -528,6 +528,8 @@ gn.Wavelet2Painter _wavelet2Painter({
   required ui.FragmentShader shader,
   required m.Size size,
   required double elapsed,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector3 xyz,
   required vm.Vector4 xyzw,
@@ -543,8 +545,6 @@ gn.Wavelet2Painter _wavelet2Painter({
   required double alpha,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
 }) =>
     gn.Wavelet2Painter(
       repaint: repaint,
@@ -863,6 +863,8 @@ class _Slider extends m.StatelessWidget {
 
 class _NoisePainterControls extends m.StatelessWidget {
   final m.Size size;
+  final double scale;
+  final double brightness;
   final double x;
   final double y;
   final double? z;
@@ -881,8 +883,8 @@ class _NoisePainterControls extends m.StatelessWidget {
   final double? alpha;
   final double? phase;
   final double? k;
-  final double scale;
-  final double brightness;
+
+  final void Function(double) onBrightnessChanged;
   final void Function(double)? onZChanged;
   final void Function(double)? onWChanged;
   final void Function(double)? onPzChanged;
@@ -891,10 +893,11 @@ class _NoisePainterControls extends m.StatelessWidget {
   final void Function(double)? onWavelengthChanged;
   final void Function(double)? onTimeChanged;
   final void Function(double)? onAlphaChanged;
-  final void Function(double) onBrightnessChanged;
 
   const _NoisePainterControls({
     required this.size,
+    required this.scale,
+    required this.brightness,
     required this.x,
     required this.y,
     this.z,
@@ -913,8 +916,7 @@ class _NoisePainterControls extends m.StatelessWidget {
     this.alpha,
     this.phase,
     this.k,
-    required this.scale,
-    required this.brightness,
+    required this.onBrightnessChanged,
     this.onZChanged,
     this.onWChanged,
     this.onPzChanged,
@@ -923,7 +925,6 @@ class _NoisePainterControls extends m.StatelessWidget {
     this.onSteepnessChanged,
     this.onWavelengthChanged,
     this.onAlphaChanged,
-    required this.onBrightnessChanged,
   });
 
   @override
@@ -1139,7 +1140,8 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
   ui.FragmentShader? shader;
 
   double elapsed = 0.0;
-
+  double scale = 64.0;
+  double brightness = 1.0;
   double x = 0.0;
   double y = 0.0;
   double z = 0.0;
@@ -1158,8 +1160,6 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
   double alpha = 0.0;
   double phase = 0.0;
   double k = 0.5;
-  double scale = 64.0;
-  double brightness = 1.0;
 
   @override
   void initState() {
@@ -1197,6 +1197,8 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                 shader: shader!,
                 size: size,
                 elapsed: elapsed,
+                scale: scale,
+                brightness: brightness,
                 xy: vm.Vector2(x, y),
                 xyz: vm.Vector3(x, y, z),
                 xyzw: vm.Vector4(x, y, z, w),
@@ -1212,12 +1214,12 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                 alpha: alpha,
                 phase: phase,
                 k: k,
-                scale: scale,
-                brightness: brightness,
               );
               final controls = switch (painter) {
                 gn.GerstnerWave2Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     dirX: dirX,
@@ -1225,8 +1227,11 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                     steepness: steepness,
                     wavelength: wavelength,
                     time: time,
-                    scale: scale,
-                    brightness: brightness,
+                    onBrightnessChanged: (value) {
+                      setState(() {
+                        brightness = value;
+                      });
+                    },
                     onSteepnessChanged: (value) {
                       setState(() {
                         steepness = value;
@@ -1242,34 +1247,31 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                         time = value;
                       });
                     },
-                    onBrightnessChanged: (value) {
-                      setState(() {
-                        brightness = value;
-                      });
-                    },
                   ),
                 gn.TilingSimplexFlow2Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     px: px,
                     py: py,
                     alpha: alpha,
-                    scale: scale,
-                    brightness: brightness,
-                    onAlphaChanged: (value) {
-                      setState(() {
-                        alpha = value;
-                      });
-                    },
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
                       });
                     },
+                    onAlphaChanged: (value) {
+                      setState(() {
+                        alpha = value;
+                      });
+                    },
                   ),
                 gn.TilingSimplexFlow3Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     z: z,
@@ -1277,8 +1279,11 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                     py: py,
                     pz: pz,
                     alpha: alpha,
-                    scale: scale,
-                    brightness: brightness,
+                    onBrightnessChanged: (value) {
+                      setState(() {
+                        brightness = value;
+                      });
+                    },
                     onZChanged: (value) {
                       setState(() {
                         z = value;
@@ -1294,38 +1299,33 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                         alpha = value;
                       });
                     },
+                  ),
+                gn.VoronoiTime2Painter() => _NoisePainterControls(
+                    size: size,
+                    scale: scale,
+                    brightness: brightness,
+                    x: x,
+                    y: y,
+                    time: time,
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
                       });
                     },
-                  ),
-                gn.VoronoiTime2Painter() => _NoisePainterControls(
-                    size: size,
-                    x: x,
-                    y: y,
-                    time: time,
-                    scale: scale,
-                    brightness: brightness,
                     onTimeChanged: (value) {
                       setState(() {
                         time = value;
                       });
                     },
-                    onBrightnessChanged: (value) {
-                      setState(() {
-                        brightness = value;
-                      });
-                    },
                   ),
                 gn.Voronoise2Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     u: u,
                     v: v,
-                    scale: scale,
-                    brightness: brightness,
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
@@ -1334,32 +1334,32 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                   ),
                 gn.Voronoise3Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     z: z,
                     u: u,
                     v: v,
-                    scale: scale,
-                    brightness: brightness,
-                    onZChanged: (value) {
-                      setState(() {
-                        z = value;
-                      });
-                    },
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
                       });
                     },
+                    onZChanged: (value) {
+                      setState(() {
+                        z = value;
+                      });
+                    },
                   ),
                 gn.Wavelet2Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     phase: phase,
                     k: k,
-                    scale: scale,
-                    brightness: brightness,
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
@@ -1368,11 +1368,11 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                   ),
                 gn.PrimitivePeriodTiling2Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     px: px,
-                    scale: scale,
-                    brightness: brightness,
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
@@ -1381,31 +1381,31 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                   ),
                 gn.PrimitivePeriodTiling3Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     z: z,
                     px: px,
-                    scale: scale,
-                    brightness: brightness,
-                    onZChanged: (value) {
-                      setState(() {
-                        z = value;
-                      });
-                    },
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
                       });
                     },
+                    onZChanged: (value) {
+                      setState(() {
+                        z = value;
+                      });
+                    },
                   ),
                 gn.Tiling2Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     px: px,
                     py: py,
-                    scale: scale,
-                    brightness: brightness,
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
@@ -1414,14 +1414,19 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                   ),
                 gn.Tiling3Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     z: z,
                     px: px,
                     py: py,
                     pz: pz,
-                    scale: scale,
-                    brightness: brightness,
+                    onBrightnessChanged: (value) {
+                      setState(() {
+                        brightness = value;
+                      });
+                    },
                     onZChanged: (value) {
                       setState(() {
                         z = value;
@@ -1432,14 +1437,11 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                         pz = value;
                       });
                     },
-                    onBrightnessChanged: (value) {
-                      setState(() {
-                        brightness = value;
-                      });
-                    },
                   ),
                 gn.Tiling4Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     z: z,
@@ -1448,8 +1450,11 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                     py: py,
                     pz: pz,
                     pw: pw,
-                    scale: scale,
-                    brightness: brightness,
+                    onBrightnessChanged: (value) {
+                      setState(() {
+                        brightness = value;
+                      });
+                    },
                     onZChanged: (value) {
                       setState(() {
                         z = value;
@@ -1470,18 +1475,13 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                         pw = value;
                       });
                     },
-                    onBrightnessChanged: (value) {
-                      setState(() {
-                        brightness = value;
-                      });
-                    },
                   ),
                 gn.Noise2Painter() => _NoisePainterControls(
                     size: size,
-                    x: x,
-                    y: y,
                     scale: scale,
                     brightness: brightness,
+                    x: x,
+                    y: y,
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
@@ -1490,30 +1490,35 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                   ),
                 gn.Noise3Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     z: z,
-                    scale: scale,
-                    brightness: brightness,
-                    onZChanged: (value) {
-                      setState(() {
-                        z = value;
-                      });
-                    },
                     onBrightnessChanged: (value) {
                       setState(() {
                         brightness = value;
                       });
                     },
+                    onZChanged: (value) {
+                      setState(() {
+                        z = value;
+                      });
+                    },
                   ),
                 gn.Noise4Painter() => _NoisePainterControls(
                     size: size,
+                    scale: scale,
+                    brightness: brightness,
                     x: x,
                     y: y,
                     z: z,
                     w: w,
-                    scale: scale,
-                    brightness: brightness,
+                    onBrightnessChanged: (value) {
+                      setState(() {
+                        brightness = value;
+                      });
+                    },
                     onZChanged: (value) {
                       setState(() {
                         z = value;
@@ -1522,11 +1527,6 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                     onWChanged: (value) {
                       setState(() {
                         w = value;
-                      });
-                    },
-                    onBrightnessChanged: (value) {
-                      setState(() {
-                        brightness = value;
                       });
                     },
                   ),

@@ -5,13 +5,13 @@
 
 uniform vec2 size;
 uniform float elapsed;
+uniform float scale;
+uniform float brightness;
 uniform vec2 xy;
 uniform vec2 dir;
 uniform float steepness;
 uniform float wavelength;
 uniform float time;
-uniform float scale;
-uniform float brightness;
 
 out vec4 fragColor;
 
