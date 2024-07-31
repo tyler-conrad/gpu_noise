@@ -517,8 +517,7 @@ class TilingSimplexFlow2Painter extends NoisePainter with _Tiling2Painter {
 
   @override
   bool shouldRepaint(covariant TilingSimplexFlow2Painter oldDelegate) =>
-      super.shouldRepaint(oldDelegate) ||
-      oldDelegate.alpha != alpha;
+      super.shouldRepaint(oldDelegate) || oldDelegate.alpha != alpha;
 }
 
 class TilingSimplexFlow3Painter extends NoisePainter with _Tiling3Painter {
@@ -557,8 +556,7 @@ class TilingSimplexFlow3Painter extends NoisePainter with _Tiling3Painter {
 
   @override
   bool shouldRepaint(covariant TilingSimplexFlow3Painter oldDelegate) =>
-      super.shouldRepaint(oldDelegate) ||
-      oldDelegate.alpha != alpha;
+      super.shouldRepaint(oldDelegate) || oldDelegate.alpha != alpha;
 }
 
 class Voronoise2Painter extends NoisePainter with _Noise2Painter {
@@ -596,8 +594,7 @@ class Voronoise2Painter extends NoisePainter with _Noise2Painter {
 
   @override
   bool shouldRepaint(covariant Voronoise2Painter oldDelegate) =>
-      super.shouldRepaint(oldDelegate) ||
-      oldDelegate.uv != uv;
+      super.shouldRepaint(oldDelegate) || oldDelegate.uv != uv;
 }
 
 class Voronoise3Painter extends NoisePainter with _Noise3Painter {
@@ -635,8 +632,7 @@ class Voronoise3Painter extends NoisePainter with _Noise3Painter {
 
   @override
   bool shouldRepaint(covariant Voronoise3Painter oldDelegate) =>
-      super.shouldRepaint(oldDelegate) ||
-      oldDelegate.uv != uv;
+      super.shouldRepaint(oldDelegate) || oldDelegate.uv != uv;
 }
 
 class Wavelet2Painter extends NoisePainter with _Noise2Painter {
@@ -692,9 +688,9 @@ Future<ui.Image> toImage(NoisePainter painter) {
 
 Future<ui.Image> cellular2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) =>
     load('lib/src/shaders/cellular2.frag').then(
@@ -712,9 +708,9 @@ Future<ui.Image> cellular2Image({
 
 Future<ui.Image> cellular2x2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/cellular2x2.frag');
@@ -732,9 +728,9 @@ Future<ui.Image> cellular2x2Image({
 
 Future<ui.Image> cellular2x2x2Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/cellular2x2x2.frag');
@@ -752,9 +748,9 @@ Future<ui.Image> cellular2x2x2Image({
 
 Future<ui.Image> cellular3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/cellular3.frag');
@@ -772,9 +768,9 @@ Future<ui.Image> cellular3Image({
 
 Future<ui.Image> curl2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/curl2.frag');
@@ -792,9 +788,9 @@ Future<ui.Image> curl2Image({
 
 Future<ui.Image> curl3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/curl3.frag');
@@ -812,9 +808,9 @@ Future<ui.Image> curl3Image({
 
 Future<ui.Image> curl4Image({
   required ui.Size size,
-  required vm.Vector4 xyzw,
   required double scale,
   required double brightness,
+  required vm.Vector4 xyzw,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/curl4.frag');
@@ -832,9 +828,9 @@ Future<ui.Image> curl4Image({
 
 Future<ui.Image> fbm2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/fbm2.frag');
@@ -852,9 +848,9 @@ Future<ui.Image> fbm2Image({
 
 Future<ui.Image> fbm3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/fbm3.frag');
@@ -872,13 +868,13 @@ Future<ui.Image> fbm3Image({
 
 Future<ui.Image> gerstnerWaveImage({
   required ui.Size size,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector2 dir,
   required double steepness,
   required double wavelength,
   required double time,
-  required double scale,
-  required double brightness,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/gerstner_wave.frag');
@@ -900,9 +896,9 @@ Future<ui.Image> gerstnerWaveImage({
 
 Future<ui.Image> gradient2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/gradient2.frag');
@@ -920,9 +916,9 @@ Future<ui.Image> gradient2Image({
 
 Future<ui.Image> gradient3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/gradient3.frag');
@@ -940,9 +936,9 @@ Future<ui.Image> gradient3Image({
 
 Future<ui.Image> perlin2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/perlin2.frag');
@@ -960,9 +956,9 @@ Future<ui.Image> perlin2Image({
 
 Future<ui.Image> perlin3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/perlin3.frag');
@@ -980,9 +976,9 @@ Future<ui.Image> perlin3Image({
 
 Future<ui.Image> perlin4Image({
   required ui.Size size,
-  required vm.Vector4 xyzw,
   required double scale,
   required double brightness,
+  required vm.Vector4 xyzw,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/perlin4.frag');
@@ -1000,9 +996,9 @@ Future<ui.Image> perlin4Image({
 
 Future<ui.Image> psrd2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/psrd2.frag');
@@ -1020,9 +1016,9 @@ Future<ui.Image> psrd2Image({
 
 Future<ui.Image> psrd3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/psrd3.frag');
@@ -1040,9 +1036,9 @@ Future<ui.Image> psrd3Image({
 
 Future<ui.Image> random2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/random2.frag');
@@ -1060,9 +1056,9 @@ Future<ui.Image> random2Image({
 
 Future<ui.Image> random3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/random3.frag');
@@ -1080,9 +1076,9 @@ Future<ui.Image> random3Image({
 
 Future<ui.Image> random4Image({
   required ui.Size size,
-  required vm.Vector4 xyzw,
   required double scale,
   required double brightness,
+  required vm.Vector4 xyzw,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/random4.frag');
@@ -1100,9 +1096,9 @@ Future<ui.Image> random4Image({
 
 Future<ui.Image> signedRandom2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/signed_random2.frag');
@@ -1120,9 +1116,9 @@ Future<ui.Image> signedRandom2Image({
 
 Future<ui.Image> signedRandom3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/signed_random3.frag');
@@ -1140,9 +1136,9 @@ Future<ui.Image> signedRandom3Image({
 
 Future<ui.Image> signedRandom4Image({
   required ui.Size size,
-  required vm.Vector4 xyzw,
   required double scale,
   required double brightness,
+  required vm.Vector4 xyzw,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/signed_random4.frag');
@@ -1160,9 +1156,9 @@ Future<ui.Image> signedRandom4Image({
 
 Future<ui.Image> simplex2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/simplex2.frag');
@@ -1180,9 +1176,9 @@ Future<ui.Image> simplex2Image({
 
 Future<ui.Image> simplex3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/simplex3.frag');
@@ -1200,9 +1196,9 @@ Future<ui.Image> simplex3Image({
 
 Future<ui.Image> simplex4Image({
   required ui.Size size,
-  required vm.Vector4 xyzw,
   required double scale,
   required double brightness,
+  required vm.Vector4 xyzw,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/simplex4.frag');
@@ -1220,10 +1216,10 @@ Future<ui.Image> simplex4Image({
 
 Future<ui.Image> tilingFbm3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
-  required double period,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
+  required double period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_fbm3.frag');
@@ -1242,10 +1238,10 @@ Future<ui.Image> tilingFbm3Image({
 
 Future<ui.Image> tilingGradient3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
-  required double period,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
+  required double period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_gradient3.frag');
@@ -1264,10 +1260,10 @@ Future<ui.Image> tilingGradient3Image({
 
 Future<ui.Image> tilingPerlin2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
-  required vm.Vector2 period,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
+  required vm.Vector2 period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_perlin2.frag');
@@ -1286,10 +1282,10 @@ Future<ui.Image> tilingPerlin2Image({
 
 Future<ui.Image> tilingPerlin3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
-  required vm.Vector3 period,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
+  required vm.Vector3 period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_perlin3.frag');
@@ -1308,10 +1304,10 @@ Future<ui.Image> tilingPerlin3Image({
 
 Future<ui.Image> tilingPerlin4Image({
   required ui.Size size,
-  required vm.Vector4 xyzw,
-  required vm.Vector4 period,
   required double scale,
   required double brightness,
+  required vm.Vector4 xyzw,
+  required vm.Vector4 period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_perlin4.frag');
@@ -1330,10 +1326,10 @@ Future<ui.Image> tilingPerlin4Image({
 
 Future<ui.Image> tilingSignedRandom2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
-  required double period,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
+  required double period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_signed_random2.frag');
@@ -1352,10 +1348,10 @@ Future<ui.Image> tilingSignedRandom2Image({
 
 Future<ui.Image> tilingSignedRandom3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
-  required double period,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
+  required double period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_signed_random3.frag');
@@ -1374,10 +1370,10 @@ Future<ui.Image> tilingSignedRandom3Image({
 
 Future<ui.Image> tilingSimplex2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
-  required vm.Vector2 period,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
+  required vm.Vector2 period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_simplex2.frag');
@@ -1396,10 +1392,10 @@ Future<ui.Image> tilingSimplex2Image({
 
 Future<ui.Image> tilingSimplex3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
-  required vm.Vector3 period,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
+  required vm.Vector3 period,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_simplex3.frag');
@@ -1418,11 +1414,11 @@ Future<ui.Image> tilingSimplex3Image({
 
 Future<ui.Image> tilingSimplexFlow2Image({
   required ui.Size size,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required vm.Vector2 period,
   required double alpha,
-  required double scale,
-  required double brightness,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_simplex_flow2.frag');
@@ -1442,11 +1438,11 @@ Future<ui.Image> tilingSimplexFlow2Image({
 
 Future<ui.Image> tilingSimplexFlow3Image({
   required ui.Size size,
+  required double scale,
+  required double brightness,
   required vm.Vector3 xyz,
   required vm.Vector3 period,
   required double alpha,
-  required double scale,
-  required double brightness,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/tiling_simplex_flow3.frag');
@@ -1466,9 +1462,9 @@ Future<ui.Image> tilingSimplexFlow3Image({
 
 Future<ui.Image> voronoi2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/voronoi2.frag');
@@ -1486,9 +1482,9 @@ Future<ui.Image> voronoi2Image({
 
 Future<ui.Image> voronoi3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/voronoi3.frag');
@@ -1506,10 +1502,10 @@ Future<ui.Image> voronoi3Image({
 
 Future<ui.Image> voronoiTime2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
-  required double time,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
+  required double time,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/voronoi_time2.frag');
@@ -1528,10 +1524,10 @@ Future<ui.Image> voronoiTime2Image({
 
 Future<ui.Image> voronoise2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
-  required vm.Vector2 uv,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
+  required vm.Vector2 uv,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/voronoise2.frag');
@@ -1550,10 +1546,10 @@ Future<ui.Image> voronoise2Image({
 
 Future<ui.Image> voronoise3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
-  required vm.Vector2 uv,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
+  required vm.Vector2 uv,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/voronoise3.frag');
@@ -1572,11 +1568,11 @@ Future<ui.Image> voronoise3Image({
 
 Future<ui.Image> wavelet2Image({
   required ui.Size size,
+  required double scale,
+  required double brightness,
   required vm.Vector2 xy,
   required double phase,
   required double k,
-  required double scale,
-  required double brightness,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/wavelet2.frag');
@@ -1596,9 +1592,9 @@ Future<ui.Image> wavelet2Image({
 
 Future<ui.Image> worley2Image({
   required ui.Size size,
-  required vm.Vector2 xy,
   required double scale,
   required double brightness,
+  required vm.Vector2 xy,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/worley2.frag');
@@ -1616,9 +1612,9 @@ Future<ui.Image> worley2Image({
 
 Future<ui.Image> worley3Image({
   required ui.Size size,
-  required vm.Vector3 xyz,
   required double scale,
   required double brightness,
+  required vm.Vector3 xyz,
   double elapsed = 0.0,
 }) async {
   final shader = await load('lib/src/shaders/worley3.frag');
