@@ -62,6 +62,12 @@ flutter:
     - lib/src/shaders/tiling_signed_random3.frag
     - lib/src/shaders/tiling_simplex2.frag
     - lib/src/shaders/tiling_simplex3.frag
+    - lib/src/shaders/voronoi2.frag
+    - lib/src/shaders/voronoi3.frag
+    - lib/src/shaders/voronoi_time2.frag
+    - lib/src/shaders/voronoise2.frag
+    - lib/src/shaders/voronoise3.frag
+    - lib/src/shaders/wavelet2.frag
 
   # To add assets to your package, add an assets section, like this:
   # assets:

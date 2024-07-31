@@ -2,9 +2,8 @@
 #include "config.glsl"
 #include "fns/snoise.glsl"
 
-
 uniform vec2 size;
-uniform float time;
+uniform float elapsed;
 uniform vec4 xyzw;
 uniform float scale;
 uniform float brightness;

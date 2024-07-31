@@ -1,3 +1,4 @@
+#define PLATFORM_WEBGL
 #define RANDOM_SINLESS
 #define OCTAVES 1
 #define FBM_OCTAVES OCTAVES

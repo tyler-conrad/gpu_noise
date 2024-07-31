@@ -4,7 +4,7 @@
 
 
 uniform vec2 size;
-uniform float time;
+uniform float elapsed;
 uniform vec2 xy;
 uniform float period;
 uniform float scale;
