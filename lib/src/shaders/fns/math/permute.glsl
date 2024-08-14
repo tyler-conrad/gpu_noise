@@ -5,7 +5,8 @@ contributors: [Stefan Gustavson, Ian McEwan]
 description: permute
 use: <float|vec2|vec3|vec4> permute(<float|vec2|vec3|vec4> x)
 examples:
-    - https://raw.githubusercontent.com/patriciogonzalezvivo/lygia_examples/main/math_functions.frag
+    -
+https://raw.githubusercontent.com/patriciogonzalezvivo/lygia_examples/main/math_functions.frag
 */
 
 #ifndef FNC_PERMUTE
