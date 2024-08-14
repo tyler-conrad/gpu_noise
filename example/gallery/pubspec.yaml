@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 0.1.0+1
 
 environment:
   sdk: '>=3.4.4 <4.0.0'
@@ -31,8 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  collection: '>=1.18.0 <2.0.0'
-  vector_math: '>=2.1.4 <3.0.0'
+  collection: ^1.18.0
+  vector_math: ^2.1.4
   gpu_noise:
     path: ../..
 
@@ -50,7 +50,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: '>=4.0.0 <5.0.0'
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -63,51 +63,51 @@ flutter:
   uses-material-design: true
 
   shaders:
-    - ../../lib/src/shaders/cellular2.frag
-    - ../../lib/src/shaders/cellular2x2.frag
-    - ../../lib/src/shaders/cellular2x2x2.frag
-    - ../../lib/src/shaders/cellular3.frag
-    - ../../lib/src/shaders/curl2.frag
-    - ../../lib/src/shaders/curl3.frag
-    - ../../lib/src/shaders/curl4.frag
-    - ../../lib/src/shaders/fbm2.frag
-    - ../../lib/src/shaders/fbm3.frag
-    - ../../lib/src/shaders/gerstner_wave2.frag
-    - ../../lib/src/shaders/gradient2.frag
-    - ../../lib/src/shaders/gradient3.frag
-    - ../../lib/src/shaders/perlin2.frag
-    - ../../lib/src/shaders/perlin3.frag
-    - ../../lib/src/shaders/perlin4.frag
-    - ../../lib/src/shaders/psrd2.frag
-    - ../../lib/src/shaders/psrd3.frag
-    - ../../lib/src/shaders/random2.frag
-    - ../../lib/src/shaders/random3.frag
-    - ../../lib/src/shaders/random4.frag
-    - ../../lib/src/shaders/signed_random2.frag
-    - ../../lib/src/shaders/signed_random3.frag
-    - ../../lib/src/shaders/signed_random4.frag
-    - ../../lib/src/shaders/simplex2.frag
-    - ../../lib/src/shaders/simplex3.frag
-    - ../../lib/src/shaders/simplex4.frag
-    - ../../lib/src/shaders/tiling_fbm3.frag
-    - ../../lib/src/shaders/tiling_gradient3.frag
-    - ../../lib/src/shaders/tiling_perlin2.frag
-    - ../../lib/src/shaders/tiling_perlin3.frag
-    - ../../lib/src/shaders/tiling_perlin4.frag
-    - ../../lib/src/shaders/tiling_signed_random2.frag
-    - ../../lib/src/shaders/tiling_signed_random3.frag
-    - ../../lib/src/shaders/tiling_simplex2.frag
-    - ../../lib/src/shaders/tiling_simplex3.frag
-    - ../../lib/src/shaders/tiling_simplex_flow2.frag
-    - ../../lib/src/shaders/tiling_simplex_flow3.frag
-    - ../../lib/src/shaders/voronoi2.frag
-    - ../../lib/src/shaders/voronoi3.frag
-    - ../../lib/src/shaders/voronoi_time2.frag
-    - ../../lib/src/shaders/voronoise2.frag
-    - ../../lib/src/shaders/voronoise3.frag
-    - ../../lib/src/shaders/wavelet2.frag
-    - ../../lib/src/shaders/worley2.frag
-    - ../../lib/src/shaders/worley3.frag
+    - lib/src/shaders/cellular2.frag
+    - lib/src/shaders/cellular2x2.frag
+    - lib/src/shaders/cellular2x2x2.frag
+    - lib/src/shaders/cellular3.frag
+    - lib/src/shaders/curl2.frag
+    - lib/src/shaders/curl3.frag
+    - lib/src/shaders/curl4.frag
+    - lib/src/shaders/fbm2.frag
+    - lib/src/shaders/fbm3.frag
+    - lib/src/shaders/gerstner_wave2.frag
+    - lib/src/shaders/gradient2.frag
+    - lib/src/shaders/gradient3.frag
+    - lib/src/shaders/perlin2.frag
+    - lib/src/shaders/perlin3.frag
+    - lib/src/shaders/perlin4.frag
+    - lib/src/shaders/psrd2.frag
+    - lib/src/shaders/psrd3.frag
+    - lib/src/shaders/random2.frag
+    - lib/src/shaders/random3.frag
+    - lib/src/shaders/random4.frag
+    - lib/src/shaders/signed_random2.frag
+    - lib/src/shaders/signed_random3.frag
+    - lib/src/shaders/signed_random4.frag
+    - lib/src/shaders/simplex2.frag
+    - lib/src/shaders/simplex3.frag
+    - lib/src/shaders/simplex4.frag
+    - lib/src/shaders/tiling_fbm3.frag
+    - lib/src/shaders/tiling_gradient3.frag
+    - lib/src/shaders/tiling_perlin2.frag
+    - lib/src/shaders/tiling_perlin3.frag
+    - lib/src/shaders/tiling_perlin4.frag
+    - lib/src/shaders/tiling_signed_random2.frag
+    - lib/src/shaders/tiling_signed_random3.frag
+    - lib/src/shaders/tiling_simplex2.frag
+    - lib/src/shaders/tiling_simplex3.frag
+    - lib/src/shaders/tiling_simplex_flow2.frag
+    - lib/src/shaders/tiling_simplex_flow3.frag
+    - lib/src/shaders/voronoi2.frag
+    - lib/src/shaders/voronoi3.frag
+    - lib/src/shaders/voronoi_time2.frag
+    - lib/src/shaders/voronoise2.frag
+    - lib/src/shaders/voronoise3.frag
+    - lib/src/shaders/wavelet2.frag
+    - lib/src/shaders/worley2.frag
+    - lib/src/shaders/worley3.frag
 
   # To add assets to your application, add an assets section, like this:
   # assets:

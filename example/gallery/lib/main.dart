@@ -1164,7 +1164,7 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
   @override
   void initState() {
     super.initState();
-    gn.load('../../lib/src/shaders/${widget.example.filename}').then(
+    gn.load('lib/src/shaders/${widget.example.filename}').then(
       (shader) {
         setState(() {
           this.shader = shader;
@@ -1635,6 +1635,8 @@ class _GpuNoiseGalleryState extends m.State<_GpuNoiseGallery>
     with m.TickerProviderStateMixin {
   static const inset = 16.0;
 
+  final showDialog = m.ValueNotifier<bool>(false);
+
   late m.PageController _pageViewController;
   int _currentPageIndex = 0;
 
@@ -1642,12 +1644,49 @@ class _GpuNoiseGalleryState extends m.State<_GpuNoiseGallery>
   void initState() {
     super.initState();
     _pageViewController = m.PageController();
+
+    showDialog.addListener(() {
+      if (showDialog.value) {
+        m.Navigator.of(context).push(_dialogBuilder(context));
+      }
+    });
+
+    Future.delayed(const Duration(milliseconds: 300), () {
+      showDialog.value = true;
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
     _pageViewController.dispose();
+  }
+
+  static m.Route<Object?> _dialogBuilder(
+    m.BuildContext context,
+  ) {
+    return m.DialogRoute<void>(
+      context: context,
+      builder: (m.BuildContext context) {
+        return m.AlertDialog(
+          title: const m.Text('Instructions'),
+          content: const m.Text(
+            'Click and drag to move the noise pattern.\n'
+            'Some examples allow for right click and drag to change parameters.\n'
+            'Scroll to zoom in and out.\n'
+            'Click the arrows to change the noise pattern.',
+          ),
+          actions: [
+            m.TextButton(
+              onPressed: () {
+                m.Navigator.of(context).pop();
+              },
+              child: const m.Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
