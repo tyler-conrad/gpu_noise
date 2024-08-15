@@ -10,8 +10,7 @@ import 'package:vector_math/vector_math.dart' as vm;
 
 import 'package:gpu_noise/gpu_noise.dart' as gn;
 
-double _scale(m.Size size) => math.sqrt(size.width * size.height) * 0.00125;
-
+/// Error thrown when code should be unreachable.
 class _UnreachableError extends Error {
   final String message;
 
@@ -21,6 +20,12 @@ class _UnreachableError extends Error {
   String toString() => 'UnreachableError: $message';
 }
 
+/// Typedef for a function that returns a [gn.NoisePainter].
+///
+/// This typedef is used to generalize the construction of any of the provided
+/// subclasses of [gn.NoisePainter]. For this reason it provides a superset of
+/// the parameters used by each function. The [repaint] parameter is optional
+/// and is used to trigger a repaint of the [m.CustomPainter].
 typedef _PainterBuilder = gn.NoisePainter Function({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -45,6 +50,7 @@ typedef _PainterBuilder = gn.NoisePainter Function({
   required double k,
 });
 
+/// Creates a [gn.NoisePainter] for 2D noise.
 gn.Noise2Painter _noise2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -78,6 +84,7 @@ gn.Noise2Painter _noise2Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 3D noise;
 gn.Noise3Painter _noise3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -111,6 +118,7 @@ gn.Noise3Painter _noise3Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 4D noise.
 gn.Noise4Painter _noise4Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -144,6 +152,7 @@ gn.Noise4Painter _noise4Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter]. for Gerstner wave 2D noise.
 gn.GerstnerWave2Painter _gerstnerWave2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -181,6 +190,8 @@ gn.GerstnerWave2Painter _gerstnerWave2Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 2D tiling noise where the [period] is a
+/// double.
 gn.PrimitivePeriodTiling2Painter _primitiveTiling2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -215,6 +226,8 @@ gn.PrimitivePeriodTiling2Painter _primitiveTiling2Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 3D tiling noise where the [period] is a
+/// double.
 gn.PrimitivePeriodTiling3Painter _primitivePeriodTiling3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -249,6 +262,8 @@ gn.PrimitivePeriodTiling3Painter _primitivePeriodTiling3Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 2D tiling noise where the [period] is a
+/// [vm.Vector2].
 gn.Tiling2Painter _tiling2painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -283,6 +298,8 @@ gn.Tiling2Painter _tiling2painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 3D tiling noise where the [period] is a
+/// [vm.Vector3].
 gn.Tiling3Painter _tiling3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -317,6 +334,8 @@ gn.Tiling3Painter _tiling3Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 4D tiling noise where the [period] is a
+/// [vm.Vector4].
 gn.Tiling4Painter _tiling4Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -351,6 +370,10 @@ gn.Tiling4Painter _tiling4Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 2D tiling noise where the [period] is a
+/// [vm.Vector2].
+///
+/// [alpha] is an angle in radians.
 gn.TilingSimplexFlow2Painter _tilingSimplexFlow2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -386,6 +409,10 @@ gn.TilingSimplexFlow2Painter _tilingSimplexFlow2Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 3D tiling Simplex flow noise where the
+/// [period] is a [vm.Vector3].
+///
+/// [alpha] is an angle in radians.
 gn.TilingSimplexFlow3Painter _tilingSimplexFlow3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -421,6 +448,9 @@ gn.TilingSimplexFlow3Painter _tilingSimplexFlow3Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 2D Voronoi noise.
+///
+/// [time] is used to modify the output.
 gn.VoronoiTime2Painter _voronoiTime2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -455,6 +485,9 @@ gn.VoronoiTime2Painter _voronoiTime2Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 2D Voronoise noise.
+///
+/// [uv] is used to modify the output.
 gn.Voronoise2Painter _voronoise2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -489,6 +522,9 @@ gn.Voronoise2Painter _voronoise2Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 3D Voronoise noise.
+///
+/// [uv] is used to modify the output.
 gn.Voronoise3Painter _voronoise3Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -523,6 +559,9 @@ gn.Voronoise3Painter _voronoise3Painter({
       brightness: brightness,
     );
 
+/// Creates a [gn.NoisePainter] for 2D wavelet noise.
+///
+/// [phase] and [k] are used to modify the output.
 gn.Wavelet2Painter _wavelet2Painter({
   m.Listenable? repaint,
   required ui.FragmentShader shader,
@@ -558,9 +597,15 @@ gn.Wavelet2Painter _wavelet2Painter({
       brightness: brightness,
     );
 
+/// Class to represent an example of a specific noise functionl.
 class _Example {
+  /// Title of the example.
   final String title;
+
+  /// Filename of the fragment shader without the path.
   final String filename;
+
+  /// Function to build the [gn.NoisePainter].
   final _PainterBuilder builder;
 
   const _Example({
@@ -570,6 +615,7 @@ class _Example {
   });
 }
 
+/// List of examples to display.
 const examples = [
   _Example(
     title: 'Cellular2',
@@ -809,6 +855,7 @@ List<m.Shadow> _shadows() => List.generate(
       ),
     );
 
+/// Custom text widget for displaying noise parameters.
 class _Text extends m.StatelessWidget {
   final String text;
   final double fontSize;
@@ -822,7 +869,8 @@ class _Text extends m.StatelessWidget {
           m.Text(
             text,
             style: m.TextStyle(
-              fontSize: fontSize * _scale(size),
+              fontSize:
+                  fontSize * math.sqrt(size.width * size.height) * 0.00125,
               fontWeight: m.FontWeight.bold,
               color: color,
               shadows: _shadows(),
@@ -832,6 +880,7 @@ class _Text extends m.StatelessWidget {
       );
 }
 
+/// Custom slider widget for adjusting noise parameters.
 class _Slider extends m.StatelessWidget {
   final double value;
   final double max;
@@ -861,6 +910,7 @@ class _Slider extends m.StatelessWidget {
       );
 }
 
+/// Custom widget for displaying sliders and parameter text.
 class _NoisePainterControls extends m.StatelessWidget {
   final m.Size size;
   final double scale;
@@ -1126,6 +1176,9 @@ class _NoisePainterControls extends m.StatelessWidget {
   }
 }
 
+/// Custom widget for displaying a noise shaders.  Contains default values for
+/// noise parameters and is responsible for displaying the
+/// [_NoisePainterControls] and the [gn.NoisePainter].
 class _ShaderWidget extends m.StatefulWidget {
   final _Example example;
 
@@ -1215,6 +1268,7 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                 phase: phase,
                 k: k,
               );
+              // `switch` on the painter to determine which controls to display.
               final controls = switch (painter) {
                 gn.GerstnerWave2Painter() => _NoisePainterControls(
                     size: size,
@@ -1541,11 +1595,13 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                     behavior: m.HitTestBehavior.opaque,
                     onPointerMove: (event) {
                       if (event.buttons == g.kPrimaryButton) {
+                        // Left mouse drag
                         setState(() {
                           x -= event.delta.dx;
                           y -= event.delta.dy;
                         });
                       } else {
+                        // Right mouse drag
                         setState(() {
                           px += event.delta.dx * 0.1;
                           py += event.delta.dy * 0.1;
@@ -1560,6 +1616,7 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
                     },
                     onPointerSignal: (event) {
                       if (event is g.PointerScrollEvent) {
+                        // Scroll
                         if (event.scrollDelta.dy > 0) {
                           setState(() {
                             scale += 1.0;
@@ -1600,6 +1657,7 @@ class _ShaderWidgetState extends m.State<_ShaderWidget> {
   }
 }
 
+/// Custom button widget for changing the displayed noise pattern.
 class ChangePageButton extends m.StatelessWidget {
   final m.IconData icon;
   final void Function() onPressed;
@@ -1624,6 +1682,7 @@ class ChangePageButton extends m.StatelessWidget {
   }
 }
 
+/// Custom widget for displaying the gallery of noise patterns.
 class _GpuNoiseGallery extends m.StatefulWidget {
   const _GpuNoiseGallery();
 
