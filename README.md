@@ -4,9 +4,10 @@ This package provides GPU-based noise generation functions for Flutter
 applications. The noise shaders utilized in this library are sourced from the
 [lygia](https://github.com/patriciogonzalezvivo/lygia) project.
 
-![](example.gif)
+![example](example.gif)
 
 ## Features
+
 The primary components of this library include:
 
 1. **GPU Noise Generation Functions**:
@@ -31,10 +32,11 @@ The `example/gallery` Flutter example provides a viewer for each noise type with
 customizable parameters. Different sliders will be available depending on the 
 type and dimension of the noise being generated. Additionally the functions
 are modified by mouse interactions:
- - **Change the xy position**: Left click and drag.
- - **Adjust period, direction, uv, phase, and k parameters**: Right click 
+
+- **Change the xy position**: Left click and drag.
+- **Adjust period, direction, uv, phase, and k parameters**: Right click 
    and drag.
- - **Scale adjustment**: Use the scroll wheel.
+- **Scale adjustment**: Use the scroll wheel.
 
 The [lib/src/shaders/config.glsl](lib/src/shaders/config.glsl) file contains the
 default parameters for every noise shader. You can adjust the `OCTAVES` value to
@@ -109,9 +111,11 @@ int intAtXY(int x, int y) async {
 ## Tested on
 
 **Platform:**
+
 - macOS Sonoma 14.6.1
 
 **Flutter:**
+
 - Flutter 3.24.0 • channel stable • https://github.com/flutter/flutter.git
 - Framework • revision 80c2e84975 (2 weeks ago) • 2024-07-30 23:06:49 +0700
 - Engine • revision b8800d88be
